@@ -143,4 +143,32 @@ body {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+  /*------- --------*/
+#logo {
+    color: #1D5D9B !important;
+    font-weight: bold;
+}
+#menu a{
+    color: #75C2F6 !important;
+    
+}
+#menu a:hover{
+    color: #1D5D9B !important;
+    font-weight: bold;
+    border: 2px solid #F4D160;
+    
+    
+}
+#hero h1{
+    color: #1D5D9B !important;
+    font-weight: bold;
+}
+#hero img:hover {
+        border: 5px solid #F4D160;        
+        transform: scale(1.15);
+        transition: 2.0s;
+}
+#producto h1{
+    color: #1D5D9B !important;
+    
+}
