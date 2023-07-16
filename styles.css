@@ -149,16 +149,25 @@ body {
     font-weight: bold;
 }
 #menu a{
-    color: #75C2F6 !important;
-    
+    color: #75C2F6 ;
+    font-weight: bold;    
 }
+
 #menu a:hover{
     color: #1D5D9B !important;
     font-weight: bold;
-    border: 2px solid #F4D160;
-    
-    
+    border: 2px solid #F4D160;    
 }
+#menu a:focus{
+    color: #1D5D9B !important;
+    font-weight: bold;
+}
+#menu a:active{
+    color: #1D5D9B !important;
+    font-weight: bold;
+}
+
+
 #hero h1{
     color: #1D5D9B !important;
     font-weight: bold;
