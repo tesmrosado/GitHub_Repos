@@ -8,7 +8,7 @@ function crearTablaUsuarios() {
       'CREATE TABLE IF NOT EXISTS usuarios (usrname VARCHAR(20) PRIMARY KEY, nombre VARCHAR(50), apellido VARCHAR(50), fecnacim DATE, celular VARCHAR(10), email VARCHAR(50), direccion VARCHAR(100), fpago VARCHAR(20), tarjeta VARCHAR(20), password VARCHAR(20), eslogin VARCHAR(1))',
       [],
       function () {
-        window.alert('Tabla usuarios creada con éxito');
+        //window.alert('Tabla usuarios creada con éxito');
         console.log('Tabla usuarios creada con éxito');
       },
       function (tx, error) {
@@ -65,6 +65,7 @@ function loginUsuario() {
         window.location.href = 'index.html';
       },
       function (tx, error) {
+        window.alert('Error al iniciar sesión:', error.message);
         console.log('Error al iniciar sesión:', error.message);
       }
     );
