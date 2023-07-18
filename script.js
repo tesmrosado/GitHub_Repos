@@ -1,29 +1,50 @@
-// Crea una instancia de la base de datos SQLite
-const db = openDatabase('DBArtesanal', '1.0', 'ArtesaníasOnLine Database', 2 * 1024 * 1024);
+// Abrir la conexión con la base de datos
+const db = openDatabase('c:\GitHub_Repos\DBArtesania.sqlite', '1.0', 'DBArtesania', 65535);
+
+// Función para crear la tabla de usuarios
+function crearTablaUsuarios() {
+  db.transaction(function (tx) {
+    tx.executeSql(
+      'CREATE TABLE IF NOT EXISTS usuarios (usrname VARCHAR(20) PRIMARY KEY, nombre VARCHAR(50), apellido VARCHAR(50), fecnacim DATE, celular VARCHAR(10), email VARCHAR(50), direccion VARCHAR(100), fpago VARCHAR(20), tarjeta VARCHAR(20), password VARCHAR(20), eslogin VARCHAR(1))',
+      [],
+      function () {
+        window.alert('Tabla usuarios creada con éxito');
+        console.log('Tabla usuarios creada con éxito');
+      },
+      function (tx, error) {
+        window.alert('Error al crear la tabla usuarios: ' + error.message);
+        console.log('Error al crear la tabla usuarios: ' + error.message);
+      }
+    );
+  });
+}
+
 
 // Función para crear un nuevo usuario
 function crearUsuario() {
-  const name = document.getElementById('name').value;
-  const lastname = document.getElementById('lastname').value;
-  const birthdate = document.getElementById('birthdate').value;
-  const phone = document.getElementById('phone').value;
+  const usrname = document.getElementById('usrname').value;
+  const name = document.getElementById('nombre').value;
+  const lastname = document.getElementById('apellido').value;
+  const birthdate = document.getElementById('fecnacim').value;
+  const phone = document.getElementById('celular').value;
   const email = document.getElementById('email').value;
-  const address = document.getElementById('address').value;
-  const payment = document.getElementById('payment').value;
-  const card = document.getElementById('card').value;
+  const address = document.getElementById('direccion').value;
+  const payment = document.getElementById('fpago').value;
+  const card = document.getElementById('tarjeta').value;
   const password = document.getElementById('password').value;
 
   // Insertar el nuevo usuario en la base de datos
   db.transaction(function (tx) {
     tx.executeSql(
-      'INSERT INTO Usuario (Usuario, Nombre, Apellido, FechaNacimiento, Celular, Email, Direccion, FormaPago, NroTarjeta, Contraseña) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      ['usuario', name, lastname, birthdate, phone, email, address, payment, card, password],
+      'INSERT INTO usuarios (usrname, nombre, apellido, fecnacim, celular, email, direccion, fpago, tarjeta, password, eslogin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [usrname, name, lastname, birthdate, phone, email, address, payment, card, password, 'N'],
       function () {
         // Registro exitoso, redirigir a la página de inicio de sesión
         window.location.href = 'login.html';
       },
       function (tx, error) {
-        console.log('Error al crear el usuario:', error.message);
+        window.alert('Error al crear el usuario: ' + error.message);
+        console.log('Error crear usuario: ' + error.message);
       }
     );
   });
@@ -37,7 +58,7 @@ function loginUsuario() {
   // Actualizar el campo "login" del usuario en la base de datos
   db.transaction(function (tx) {
     tx.executeSql(
-      'UPDATE Usuario SET login = "S" WHERE Usuario = ? AND Contraseña = ?',
+      'UPDATE usuarios SET eslogin = "S" WHERE usrname = ? AND password = ?',
       [username, password],
       function () {
         // Inicio de sesión exitoso, redirigir a la página principal
@@ -54,7 +75,7 @@ function loginUsuario() {
 function verificaLogin() {
   db.transaction(function (tx) {
     tx.executeSql(
-      'SELECT * FROM Usuario WHERE login = "S"',
+      'SELECT * FROM usuarios WHERE login = "S"',
       [],
       function (tx, result) {
         if (result.rows.length > 0) {
