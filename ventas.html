@@ -19,7 +19,7 @@
       <div class="container">
         <!-- Logo del marketplace -->
         <a id="logo" class="navbar-brand" href="index.html">
-          <img class="mx-3" src="img/logo_ico.png" alt="Logo" width="50" height="50"
+          <img class="mx-3" src="img/logo-ico.png" alt="Logo" width="50" height="50"
             class="d-inline-block align-text-top">Market G-1</a>
         <!-- Botón para expandir la navegación en pantallas pequeñas -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -55,9 +55,171 @@
   </header>
   <main>
     <div class="container" id="producto">
-      <h1 class=" display-1 border-bottom my-5 py-5">Ventas / vendedores</h1>
+      <h1 class=" display-1 border-bottom my-4 py-1"></h1>
       <!-- Lista de productos -->
   </main>
+ <!--banner-->
+ <div class="container-fluid">
+  <img src="img/vendedores.png" class="img-fluid" alt="Responsive image">
+</div>
+
+<!-- Vendedores -->
+
+  <div class="container">
+      <h2>Lista de Vendedores</h2>
+      <div class="row" id="vendors"></div>
+      <div class="row" id="products"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+      // Datos simulados de vendedores y productos
+      var vendors = [
+          { 
+            name: "Cel Shop", 
+            image: "img/vendedor_celular.jpg",
+            products: [
+              { name: "Samsung A20", detail: "128 gb Memoria- 4gb RAM - Color Azul", price: 199, image: "img/prod/prod1.jpg" },
+              { name: "Redmi 1", detail: "60 gb Memoria- 2gb RAM - Color Gris", price: 292, image: "img/prod/prod2.jpg" },
+              { name: "Huawei", detail: "128 gb Memoria- 4gb RAM - Color Negro", price: 150, image: "img/prod/prod3.jpg" },
+              { name: "Nokia", detail: "75 gb Memoria- 4gb RAM - Color Verde", price: 175, image: "img/prod/prod4.jpg" }
+              
+            ]
+          },
+          { 
+            name: "Aroma Perfumes", 
+            image: "img/vendedor_perfume.jpg",
+            products: [
+              { name: "Blue Channel", detail: "Perfume de hombre", price: 75, image: "img/prod/prod5.jpg" },
+              { name: "Poison", detail: "Perfume de Mujer", price: 45, image: "img/prod/prod6.jpg" },
+              { name: "1 Million", detail: "Perfume Hombre", price: 95, image: "img/prod/prod7.jpg" },
+              { name: "Le Man", detail: "Perfume juvenil", price: 105, image: "img/prod/prod8.jpg" }
+
+            ]
+          },
+          { 
+            name: "Shopping Look", 
+            image: "img/vendedor_ropa.png",
+            products: [
+              { name: "Producto 3", detail: "Detalle del producto 3", price: 15, image: "img/prod/prod9.jpg" },
+              { name: "Producto 4", detail: "Detalle del producto 4", price: 25, image: "img/prod/prod10.jpg" },
+              { name: "Producto 4", detail: "Detalle del producto 4", price: 25, image: "img/prod/prod11.jpg" },
+              { name: "Producto 4", detail: "Detalle del producto 4", price: 25, image: "img/prod/prod12.jpg" }
+            ]
+          }
+      ];
+
+      // Función para mostrar los vendedores en tarjetas
+      function displayVendors() {
+          var vendorsContainer = document.getElementById("vendors");
+          vendorsContainer.innerHTML = "";
+
+          vendors.forEach(function(vendor) {
+              var card = document.createElement("div");
+              card.className = "card vendor-card col-md-3 col-lg-3 mb-4 m-2 p-1";
+              var cardBody = document.createElement("div");
+              cardBody.className = "card-body text-center";
+              var vendorName = document.createElement("h5");
+              vendorName.className = "card-title";
+              vendorName.textContent = vendor.name;
+              var vendorImage = document.createElement("img");
+              vendorImage.className = "card-img-top";
+              vendorImage.src = vendor.image;
+              var viewProductsBtn = document.createElement("button");
+              viewProductsBtn.className = "btn btn-primary";
+              viewProductsBtn.textContent = "Ver productos";
+              viewProductsBtn.addEventListener("click", function() {
+                  displayProducts(vendor.products, vendor.name);
+              });
+
+              cardBody.appendChild(vendorName);
+              cardBody.appendChild(viewProductsBtn);
+              card.appendChild(vendorImage);
+              card.appendChild(cardBody);
+              vendorsContainer.appendChild(card);
+          });
+      }
+
+      // Función para mostrar los productos del vendedor seleccionado
+      function displayProducts(products, vendorName) {
+          var productsContainer = document.getElementById("products");
+          productsContainer.innerHTML = "";
+
+          var title = document.createElement("h3");
+          title.textContent = "Productos del " + vendorName;
+          productsContainer.appendChild(title);
+
+          var row = document.createElement("div");
+          row.className = "row";
+
+          products.forEach(function(product) {
+              var card = document.createElement("div");
+              card.className = "card product-card col-md-3 col-lg-3 mb-4 m-2 p-1";
+              var cardBody = document.createElement("div");
+              cardBody.className = "card-body";
+              var productName = document.createElement("h5");
+              productName.className = "card-title";
+              productName.textContent = product.name;
+              var productDetail = document.createElement("p");
+              productDetail.className = "card-text";
+              productDetail.textContent = product.detail;
+              var productPrice = document.createElement("p");
+              productPrice.className = "card-text";
+              productPrice.textContent = "Precio: $" + product.price;
+              var productImage = document.createElement("img");
+              productImage.className = "card-img-top";
+              productImage.src = product.image;
+
+              cardBody.appendChild(productName);
+              cardBody.appendChild(productDetail);
+              cardBody.appendChild(productPrice);
+              card.appendChild(productImage);
+              card.appendChild(cardBody);
+              row.appendChild(card);
+          });
+
+          productsContainer.appendChild(row);
+      }
+
+      // Llamar a la función inicial para mostrar los vendedores
+      displayVendors();
+  </script>
+
+<!-- Pie de página -->
+<footer>
+  <div class="container">
+    <p>&copy; 2023 Marketplace G7. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- Incluir el archivo JavaScript de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+  crossorigin="anonymous"></script>
+
+  <script>
+    // todos los enlaces con la clase "scroll"
+    const links = document.querySelectorAll('.scroll');
+  
+    //evento de clic a cada enlace
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+  
+        // clase "active" al enlace clicado
+        links.forEach(link => link.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+  
 </body>
 
 </html>
