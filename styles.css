@@ -1,3 +1,36 @@
+#logo {
+    color: #1D5D9B !important;
+    font-weight: bold;
+}
+#menu a{
+    color: #1D5D9B ;
+    font-weight: bold;    
+}
+
+#menu a:hover{
+    color: #1D5D9B !important;
+    font-weight: bold;
+    border: 2px solid #F4D160;    
+}
+#menu a:active{
+    background-color: antiquewhite;
+}
+
+#hero h1{
+    color: #1D5D9B !important;
+    font-weight: bold;
+}
+#hero img:hover {
+        border: 5px solid #F4D160;        
+        transform: scale(1.15);
+        transition: 2.0s;
+}
+#producto h1{
+    color: #1D5D9B !important;
+    
+}
+/*Login*/
+
 /* Estilos generales */
 body {
     margin: 0;
@@ -143,4 +176,3 @@ body {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
