@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Formulario de Tarjeta de Crédito Dinámico</title>
+	<link rel="shortcut icon" href="img/paw.png" rel="">
+	<link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body class="tc">
+	 <!-- Encabezado -->
+	 <header>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #FBEEAC;">
+		  <div class="container">
+			<!-- Logo del marketplace -->
+			<a id="logo" class="navbar-brand" href="index.html">
+			  <img class="mx-3" src="img/logo_ico.png" alt="Logo" width="50" height="50"
+				class="d-inline-block align-text-top">Market G-1</a>
+			<!-- Botón para expandir la navegación en pantallas pequeñas -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+			  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- Navegación del marketplace -->
+			<div id="menu" class="collapse navbar-collapse nav justify-content-center">
+			  <ul class="navbar-nav">
+				<li class="nav-item">
+				  <a class="nav-link" href="index.html">Inicio</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="login.html">Ingresar/Registro</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="ventas.html">Vender</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="productos.html">Productos</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="formulario-tc.html">Carrito</a>
+				</li>
+	
+				<li class="nav-item">
+				  <a class="nav-link" href="contacto.html">Contáctenos</a>
+				</li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+	  </header>
+	<div><a  href="index.html"><img class="header_left" src="img/paw.png"></div></a>
+	<div class="contenedor-tc">
+		<!-- Tarjeta -->
+		<section class="tarjeta" id="tarjeta">
+			<div class="delantera">
+				<div class="logo-marca" id="logo-marca">
+					<img src="img/logos/visa.png" alt="">
+				</div>
+				<img src="img/chip-tarjeta.png" class="chip" alt="" href="index.html">
+				<div class="datos">
+					<div class="grupo" id="numero">
+						<p class="label">Número Tarjeta</p>
+						<p class="numero">#### #### #### ####</p>
+					</div>
+					<div class="flexbox">
+						<div class="grupo" id="nombre">
+							<p class="label">Nombre Tarjeta</p>
+							<p class="nombre">Jhon Doe</p>
+						</div>
+
+						<div class="grupo" id="expiracion">
+							<p class="label">Expiracion</p>
+							<p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="trasera">
+				<div class="barra-magnetica"></div>
+				<div class="datos">
+					<div class="grupo" id="firma">
+						<p class="label">Firma</p>
+						<div class="firma"><p></p></div>
+					</div>
+					<div class="grupo" id="ccv">
+						<p class="label">CCV</p>
+						<p class="ccv"></p>
+					</div>
+				</div>
+				<p class="leyenda">Prueba de formulario de tarjeta de credito..................................................................</p>
+				<a href="#" class="link-banco">www.tubanco.com</a>
+			</div>
+		</section>
+
+		<!-- Contenedor Boton Abrir Formulario -->
+		<div class="contenedor-btn">
+			<button class="btn-abrir-formulario" id="btn-abrir-formulario">
+				<i class="fas fa-plus"></i>
+			</button>
+		</div>
+
+		<!-- Formulario -->
+		<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+			<div class="grupo">
+				<label for="inputNumero">Número Tarjeta</label>
+				<input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+			</div>
+			<div class="grupo">
+				<label for="inputNombre">Nombre</label>
+				<input type="text" id="inputNombre" maxlength="19" autocomplete="off">
+			</div>
+			<div class="flexbox">
+				<div class="grupo expira">
+					<label for="selectMes">Expiracion</label>
+					<div class="flexbox">
+						<div class="grupo-select">
+							<select name="mes" id="selectMes">
+								<option disabled selected>Mes</option>
+							</select>
+							<i class="fas fa-angle-down"></i>
+						</div>
+						<div class="grupo-select">
+							<select name="year" id="selectYear">
+								<option disabled selected>Año</option>
+							</select>
+							<i class="fas fa-angle-down"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="grupo ccv">
+					<label for="inputCCV">CCV</label>
+					<input type="text" id="inputCCV" maxlength="3">
+				</div>
+			</div>
+			<button type="submit" class="btn-enviar">Enviar</button>
+		</form>
+	</div>
+
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
