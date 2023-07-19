@@ -44,55 +44,60 @@
             </ul>
           </div>
         </div>
+        <div class="header-section container-cart">
+          <div>
+            <img onclick="showCart(this)" class="cart" src="./img/cart.png" alt="">
+            <p class="count-product">0</p>
+          </div>
+          <div class="cart-products" id="products-id">
+            <p class="close-btn" onclick="closeBtn()">X</p>
+            <h3>Mi carrito</h3>
+            <div class="card-items">
+            </div>
+            <h2>Total: $<strong class="price-total">0</strong></h2>
+          </div>
+        </div>
+
       </nav>
     </header>
-  <!--banner-->
-<br><br><br>
-<div class="container-fluid">
-  <img src="img/vendedores.png" class="img-fluid" alt="Responsive image">
-</div>
-      <!-- Lista de productos -->
-      <div class="container" id="producto">
-      <div class="row py-5">
-        <!-- Producto 1 -->
-        <div class="col-md-4">
-          <div class="card">
-            <img src="img/joyeria.jpg" class="card-img-top" alt="Producto 1">
-            <div class="card-body">
-              <h5 class="card-title">Joyería</h5>
-              <p class="card-text">Elegancia en cada detalle. Collares, pulseras, anillos y
-                  aretes únicos que realzan tu estilo.</p>
-              <a href="joyeria.html" class="btn btn-primary">Ir a productos</a>
+    <main>
+      <section class="container-cart">
+        <div class="products">
+          <div class="carts">
+            <div>
+              <img src="./img/textiles logo 4.jpg" alt="">
+              <p><span>20</span>$</p>
             </div>
+            <p class="title">Un delicado toque para dormir, suavidad y confort que te llevara a viajar entre tus sueños.</p>
+            <a href="" data-id="1" class="btn-add-cart">add to cart</a>
           </div>
-        </div>
-        <!-- Producto 2 -->
-        <div class="col-md-4">
-          <div class="card">
-            <img src="img/ceramica.jpg" class="card-img-top" alt="Producto 2">
-            <div class="card-body">
-              <h5 class="card-title">Cerámica</h5>
-              <p class="card-text">Arte funcional. Tazas, platos, jarrones y cuencos con encanto
-                  hecho a mano.</p>
-              <a href="ceramica.html" class="btn btn-primary">Ir a productos</a>
+          <div class="carts">
+            <div>
+              <img src="./img/textiles logo 3.jpg" alt="">
+              <p><span>15</span>$</p>
             </div>
+            <p class="title">Lo más hermoso son las artesanias de nuestro país es como estar en casa.</p>
+            <a href="" class="btn-add-cart" data-id="2">add to cart</a>
           </div>
-        </div>
-        <!-- Producto 3 -->
-        <div class="col-md-4">
-          <div class="card">
-            <img src="img/textiles.jpg" class="card-img-top" alt="Producto 3">
-            <div class="card-body">
-              <h5 class="card-title">Textiles</h5>
-              <p class="card-text">Suavidad y creatividad. Bufandas, mantas, tapices y cojines
-                  que añaden calidez.</p>
-              <a href="textiles.html" class="btn btn-primary">Ir a productos</a>
+          <div class="carts">
+            <div>
+              <img src="./img/textiles logo 2.jpg" alt="">
+              <p><span>8</span>$</p>
             </div>
+            <p class="title">La carterita posee agradables tonalidades, fomenta cultura, creatividad, amor
+              y sobre todo mucho dinamismo de forma especial.</p>
+            <a href="" data-id="3" class="btn-add-cart">add to cart</a>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          <div class="carts">
+            <div>
+              <img src="./img/textiles logo.jpg" alt="">
+              <p><span>12</span>$</p>
+            </div>
+            <p class="title">Representa la cultura ecuatoriana especialmente de Cuenca.</p>
+            <a href="" data-id="4" class="btn-add-cart">add to cart</a>
+          </div>
+      </section>
+    </main>
     <footer>
       <div class="container">
         <p>&copy; 2023 Marketplace G1. Todos los derechos reservados.</p>
